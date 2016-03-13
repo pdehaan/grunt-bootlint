@@ -2,13 +2,13 @@
 
 > A Grunt wrapper for [Bootlint](https://www.npmjs.org/package/bootlint), the HTML linter for [Bootstrap](http://getbootstrap.com) projects
 
-[![NPM version](https://badge.fury.io/js/grunt-bootlint.svg)](http://badge.fury.io/js/grunt-bootlint)
-[![Build Status](https://travis-ci.org/twbs/grunt-bootlint.svg?branch=master)](https://travis-ci.org/twbs/grunt-bootlint)
-[![Dependency Status](https://david-dm.org/twbs/grunt-bootlint.svg)](https://david-dm.org/twbs/grunt-bootlint)
-[![devDependency Status](https://david-dm.org/twbs/grunt-bootlint/dev-status.svg)](https://david-dm.org/twbs/grunt-bootlint#info=devDependencies)
+[![NPM version](https://img.shields.io/npm/v/grunt-bootlint.svg)](https://www.npmjs.com/package/grunt-bootlint)
+[![Build Status](https://img.shields.io/travis/twbs/grunt-bootlint.svg?branch=master)](https://travis-ci.org/twbs/grunt-bootlint)
+[![MIT License](https://img.shields.io/npm/l/grunt-bootlint.svg)](https://github.com/twbs/grunt-bootlint/blob/master/LICENSE-MIT)
+[![Dependency Status](https://img.shields.io/david/twbs/grunt-bootlint.svg)](https://david-dm.org/twbs/grunt-bootlint)
+[![devDependency Status](https://img.shields.io/david/dev/twbs/grunt-bootlint.svg)](https://david-dm.org/twbs/grunt-bootlint#info=devDependencies)
 
 ## Getting Started
-This plugin requires Grunt `~0.4.5`
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
@@ -86,10 +86,24 @@ Shows all errors and warnings before stopping the task. (Overrides `stoponerror`
 
 #### options.relaxerror
 
-* Type: `Array`
+* Type: `Array | Object`
 * Default: `[]`
 
-Array of [bootlint problem ID codes](https://github.com/twbs/bootlint/wiki) (`String`s) to explicitly ignore.
+Array of [bootlint problem ID codes][] (`String`s) to explicitly ignore.
+
+Object of [bootlint problem ID codes][] as **keys** and filepath globs as array **value**.
+
+##### Example
+
+```
+relaxerror: {
+  'E001': [],
+  'W005': [
+    'path/to/file.html',
+    'file/path/*.glob'
+  ]
+},
+```
 
 ## Contributing
 
@@ -97,6 +111,8 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+- 2015-11-24 - v0.10.0: Updates Bootlint to v0.14.1 and adds the ability to ignore lint problems on a per-file basis using `relaxerror`.
+- 2015-06-01 - v0.9.1: Minor update to license metadata.
 - 2015-03-16 - v0.9.0: Updates Bootlint to v0.12.0
 - 2015-02-25 - v0.8.0: Updates Bootlint to v0.11.0
 - 2015-01-23 - v0.7.0: Updates Bootlint to v0.10.0
@@ -115,3 +131,4 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 Code released under [the MIT license](https://github.com/twbs/grunt-bootlint/blob/master/LICENSE-MIT).
 
+[bootlint problem ID codes]: https://github.com/twbs/bootlint/wiki
